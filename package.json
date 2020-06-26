@@ -1,6 +1,6 @@
 {
   "name": "@restyjs/config",
-  "version": "0.0.1-alpha.14",
+  "version": "0.0.1-alpha.15",
   "description": "Configuration module for resty.js.",
   "homepage": "https://restyjs.com",
   "main": "index.js",
@@ -38,10 +38,10 @@
     "dotenv": "^8.2.0"
   },
   "peerDependencies": {
-    "@restyjs/core": "0.0.1-alpha.6"
+    "@restyjs/core": "0.0.1-alpha.15"
   },
   "devDependencies": {
-    "@restyjs/core": "^0.0.1-alpha.7",
+    "@restyjs/core": "0.0.1-alpha.15",
     "@types/jest": "^26.0.3",
     "@types/supertest": "^2.0.9",
     "jest": "^26.0.1",
