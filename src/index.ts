@@ -2,7 +2,7 @@ import dotenv, { DotenvConfigOptions, DotenvConfigOutput } from "dotenv";
 import { Provider, Service } from "@restyjs/core";
 
 @Service()
-class Configuration implements Provider {
+class ConfigurationProvider implements Provider {
   optional: boolean = false;
 
   private options?: DotenvConfigOptions;
@@ -21,6 +21,13 @@ class Configuration implements Provider {
       throw this.env.error;
     }
   }
+}
+
+function Configuration(
+  options?: DotenvConfigOptions,
+  optional?: boolean
+): ConfigurationProvider {
+  return new ConfigurationProvider(options, optional);
 }
 
 export { Configuration, DotenvConfigOptions, DotenvConfigOutput };

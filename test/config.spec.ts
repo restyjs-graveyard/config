@@ -6,7 +6,7 @@ describe("resty config", () => {
     resty({
       controllers: [],
       providers: [
-        new Configuration({
+        Configuration({
           path: "example.env",
         }),
       ],
