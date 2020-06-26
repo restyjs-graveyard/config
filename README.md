@@ -3,7 +3,7 @@ Configuration module for resty.js.
 
 ```ts
 import resty from "@restyjs/core";
-import { Database } from "@restyjs/typeorm";
+import { Configuration } from "@restyjs/config";
 
 const app = resty({
   controllers: [],
