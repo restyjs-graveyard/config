@@ -8,8 +8,11 @@ class Configuration implements Provider {
   private options?: DotenvConfigOptions;
   env?: DotenvConfigOutput;
 
-  constructor(options?: DotenvConfigOptions) {
+  constructor(options?: DotenvConfigOptions, optional?: boolean) {
     this.options = options;
+    if (optional) {
+      this.optional = optional;
+    }
   }
 
   build() {
