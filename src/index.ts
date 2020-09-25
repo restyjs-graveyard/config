@@ -3,31 +3,26 @@ import { Provider, Service } from "@restyjs/core";
 
 @Service()
 class ConfigurationProvider implements Provider {
-  optional: boolean = false;
+    private env: DotenvConfigOutput;
+    optional: boolean;
 
-  private options?: DotenvConfigOptions;
-  env?: DotenvConfigOutput;
-
-  constructor(options?: DotenvConfigOptions, optional?: boolean) {
-    this.options = options;
-    if (optional) {
-      this.optional = optional;
+    constructor(options?: DotenvConfigOptions, optional?: boolean) {
+        this.optional = optional ?? false;
+        this.env = dotenv.config(options);
     }
-  }
 
-  build() {
-    this.env = dotenv.config(this.options);
-    if (this.env.error) {
-      throw this.env.error;
+    build() {
+        if (this.env.error && !this.optional) {
+            throw this.env.error;
+        }
     }
-  }
 }
 
 function Configuration(
-  options?: DotenvConfigOptions,
-  optional?: boolean
+    options?: DotenvConfigOptions,
+    optional?: boolean
 ): ConfigurationProvider {
-  return new ConfigurationProvider(options, optional);
+    return new ConfigurationProvider(options, optional);
 }
 
 export { Configuration, DotenvConfigOptions, DotenvConfigOutput };
