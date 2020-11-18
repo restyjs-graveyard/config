@@ -1,6 +1,6 @@
 {
   "name": "@restyjs/config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Configuration module for resty.js.",
   "homepage": "https://restyjs.com",
   "main": "index.js",
